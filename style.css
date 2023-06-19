@@ -1,7 +1,7 @@
 /* GERAL */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0px;
+  margin: 0px auto;
   background: #f7f7f7;
   display: grid;
   justify-items: center;
@@ -68,7 +68,7 @@ ul {
 /* CONTEÚDO */
 .conteudo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   max-width: 1000px;
   background: #ffffff;
 }
@@ -109,6 +109,14 @@ ul {
 .texto-bicicleta a:hover {
   background: #900;
   transition: 200ms ease-in-out;
+}
+
+/* SEGUNDO QUADRO */
+
+.bicicleta img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top right;
 }
 
 /* TERCEIRO QUADRO */
@@ -160,7 +168,51 @@ h2 {
 footer {
   background: #ffffff;
   font-size: 1.5rem;
-  padding: 40px;
+  padding: 40px 0px;
   width: 100%;
   text-align: center;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 1000px) {
+  .conteudo-vantagem {
+    grid-template-columns: 1fr;
+  }
+
+  .vantagens-bikcraft {
+    text-align: center;
+  }
+
+  .texto-bicicleta h1::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .texto-bicicleta {
+    order: 2;
+    text-align: left;
+  }
+
+  .texto-bicicleta a {
+    justify-self: flex-start;
+  }
+
+  body {
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .header {
+    gap: 30px
+  }
+
+  .vantagens-bikcraft {
+    font-size: 2rem;
+  }
 }
