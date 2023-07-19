@@ -1,8 +1,38 @@
+:root {
+  --fundo: #f7f7f7;
+  --fundo-nav: #fff;
+  --borda-nav: 3px solid #fff;
+  --letra-nav: black;
+  --h1-bicicleta: black;
+  --p-bicicleta: black;
+  --texto-vantagens: rgba(0, 0, 0, 0.2);
+  --fundo-footer: #ededed;
+  --logo: black;
+  --onda: url(./img/onda-light.svg) center;
+}
+
+/* MODO DARK */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #1a1a1a;
+    --fundo-nav: #2e2e2e;
+    --borda-nav: 3px solid #b2b2b2;
+    --letra-nav: #b2b2b2;
+    --h1-bicicleta: #ededed;
+    --p-bicicleta: #ccc;
+    --texto-vantagens: rgba(255, 255, 255, 0.2);
+    --fundo-footer: #2e2e2e;
+    --fundo-footer: #0e0e0e;
+    --logo: white;
+    --onda: url(./img/onda-dark.svg) center;
+  }
+}
+
 /* GERAL */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px auto;
-  background: #f7f7f7;
+  background: var(--fundo);
   display: grid;
   justify-items: center;
   gap: 3.75rem;
@@ -52,12 +82,12 @@ ul {
 }
 
 .menu a {
-  background: #fff;
-  border: 3px solid #fff;
+  background: var(--fundo-nav);
+  border: var(--borda-nav);
   font-weight: bold;
   padding: 20px 30px;
   border-radius: 5px;
-  color: black;
+  color: var(--letra-nav);
 }
 
 .menu a:hover {
@@ -70,7 +100,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   max-width: 1000px;
-  background: #ffffff;
+  background: var(--fundo-nav);
 }
 
 /* PRIMEIRO QUADRO */
@@ -85,6 +115,7 @@ ul {
 
 .texto-bicicleta h1 {
   font-size: 2rem;
+  color: var(--h1-bicicleta);
 }
 
 .texto-bicicleta h1::after {
@@ -97,6 +128,10 @@ ul {
   position: relative;
   right: -425px;
   top: -80px;
+}
+
+.texto-bicicleta p {
+  color: var(--p-bicicleta);
 }
 
 .texto-bicicleta a {
@@ -122,8 +157,9 @@ ul {
 /* TERCEIRO QUADRO */
 .vantagens-bikcraft {
   display: grid;
-  color: #c6c6c6;
-  background-color: #f7f7f7;
+  color: var(--texto-vantagens);
+  background-color: var(--fundo);
+
   font-size: 3rem;
   text-align: end;
 }
@@ -131,7 +167,7 @@ ul {
 h2 {
   align-self: center;
   padding-right: 30px;
-  background: url(./img/onda.svg);
+  background: var(--onda);
 }
 
 /* QUARTO QUADRO */
@@ -141,6 +177,14 @@ h2 {
   margin: 40px;
 }
 
+.vantagens h3 {
+  color: var(--h1-bicicleta);
+}
+
+.vantagens p {
+  color: var(--p-bicicleta);
+}
+
 .vantagens-item {
   display: grid;
   gap: 10px;
@@ -148,7 +192,7 @@ h2 {
 }
 
 .vantagens li:nth-child(odd) {
-  background: #f7f7f7;
+  background: var(--fundo);
 }
 
 .vantagens-item:hover {
@@ -166,11 +210,12 @@ h2 {
 
 /* FOOTER */
 footer {
-  background: #ffffff;
+  background: var(--fundo-footer);
   font-size: 1.5rem;
   padding: 40px 0px;
   width: 100%;
   text-align: center;
+  color: var(--p-bicicleta);
 }
 
 /* RESPONSIVO */
@@ -209,7 +254,7 @@ footer {
   }
 
   .header {
-    gap: 30px
+    gap: 30px;
   }
 
   .vantagens-bikcraft {
